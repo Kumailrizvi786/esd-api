@@ -7,25 +7,25 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.code.develop.data.LoginTable;
 import com.code.develop.model.SignInData;
+import com.code.develop.model.changePasswordData;
 import com.code.develop.service.LoginService;
 
+
+/*
+ * 
+ * @author Kumail Rizvi
+ */
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
-
-
-/**
- * 
- * @author kailashdimri
- * this class received the login detail and fetch the result
- *
- */
 
 public class LoginController {
 	
@@ -48,9 +48,12 @@ public class LoginController {
  * @return ResponseEntity<String>
  */
 	
-	@PostMapping("/loginhelper/changepassword")
-	public  ResponseEntity<String> changeLoginPassword( @RequestBody SignInData signIn) {
-		return  new ResponseEntity<>("Password Changed" ,HttpStatus.OK);
+	@PutMapping("/loginhelper/changepassword")
+	public  ResponseEntity<String> changePassword( @RequestBody changePasswordData signIn) {
+		log.info("change password req" + signIn.toString());
+		boolean res = service.validatePassword(signIn);
+		String response = (res == true) ? "Password changed": "Incorrect email or old password";
+		return  new ResponseEntity<>(response ,HttpStatus.OK);
 	}
 	
 
