@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.code.develop.data.LoginTable;
 import com.code.develop.model.SignInData;
 import com.code.develop.model.changePasswordData;
 import com.code.develop.service.LoginService;

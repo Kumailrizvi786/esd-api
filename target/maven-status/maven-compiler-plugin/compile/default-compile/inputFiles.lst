@@ -3,11 +3,16 @@ E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\service
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\controller\LoginController.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\repository\AngelRepository.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\data\AngelTable.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\service\signupService.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\repository\SignupRepository.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\model\LoginUser.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\controller\AngelController.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\repository\LoginRepository.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\service\LoginService.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\data\SignupTable.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\model\changePasswordData.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\model\AngelUser.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\data\LoginTable.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\AngelApiApplication.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\model\SignupData.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\controller\SignupController.java
