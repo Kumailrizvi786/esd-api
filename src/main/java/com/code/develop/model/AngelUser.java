@@ -3,8 +3,10 @@ package com.code.develop.model;
 import java.util.Date;
 import java.util.Objects;
 
-//import javax.persistence.Lob;
+import javax.persistence.Lob;
 
+import org.springframework.stereotype.Component;
+@Component
 public class AngelUser {
 
 	private Long ahId;
@@ -28,7 +30,7 @@ public class AngelUser {
 	private String fileName;
 	private String fileType;
 	
-//	private byte[] data;
+	//private byte[] data;
 
 	public String getFileName() {
 		return fileName;
@@ -184,12 +186,12 @@ public class AngelUser {
 		return Objects.equals(ahEmail, other.ahEmail) && Objects.equals(ahId, other.ahId);
 	}
 
-//	public byte[] getData() {
-//		return data;
-//	}
-//
-//	public void setData(byte[] data) {
-//		this.data = data;
-//	}
+	/*public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}*/
 
 }

@@ -8,10 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Lob;
+import javax.persistence.Lob;
 
-import org.springframework.lang.NonNull;
-//import org.hibernate.annotations.GeneratorType;
+import org.hibernate.annotations.GeneratorType;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,18 +20,11 @@ public class AngelTable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long ahId;
-	
-	@Column(length = 50)
-	@NonNull
+   
 	private String ahName;
-	
-	@Column(length = 10)
 	private String ahContactNumber;
 	private String ahAddress;
 	private String ahPincode;
-	
-	@Column
-	@NonNull
 	private String ahEmail;
 	private Boolean ahType; // 1 : true 0 : false
 	private String ahProfession;
@@ -49,8 +41,8 @@ public class AngelTable {
 	private String fileName;
 	private String fileType;
 
-//	@Lob
-//	private byte[] data;
+	@Lob
+	//private byte[] data;
 
 	public String getFileName() {
 		return fileName;
@@ -206,12 +198,12 @@ public class AngelTable {
 		return Objects.equals(ahEmail, other.ahEmail) && Objects.equals(ahId, other.ahId);
 	}
 
-//	public byte[] getData() {
-//		return data;
-//	}
-//
-//	public void setData(byte[] data) {
-//		this.data = data;
-//	}
+	/*public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}*/
 
 }
