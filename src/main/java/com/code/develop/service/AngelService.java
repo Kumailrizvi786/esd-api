@@ -35,8 +35,33 @@ public class AngelService {
 	
 	
 	//Does not work properly
-	public AngelUser updateAngelUserById(AngelUser angelUser) {
-		return  saveAngelUserDetail(angelUser);
+	public String updateAngelUserById(AngelUser angelUser) {
+		repository.deleteById(angelUser.getAhId());
+		AngelTable user = new AngelTable();
+		Long id = angelUser.getAhId();
+		if(id > 0 ) {
+			user.setAhAddress(angelUser.getAhAddress());
+			user.setAhContactNumber(angelUser.getAhContactNumber());
+			user.setAhContactPersonName(angelUser.getAhContactPersonName());
+			user.setAhCreated_on(angelUser.getAhCreated_on());
+			user.setAhEmail(angelUser.getAhEmail());
+			user.setAhGSTNumber_id(angelUser.getAhGSTNumber_id());
+			user.setAhId(angelUser.getAhId());
+			user.setAhInterestId(angelUser.getAhInterestId());
+			user.setAhLastUpdated_on(angelUser.getAhLastUpdated_on());
+			user.setAhName(angelUser.getAhName());
+			user.setAhPincode(angelUser.getAhPincode());
+			user.setAhProfession(angelUser.getAhProfession());
+			user.setAhQualification(angelUser.getAhQualification());
+			user.setAhStatus(angelUser.getAhStatus());
+			user.setAhType(angelUser.getAhType());
+			user.setFileName(angelUser.getFileName());
+			user.setFileType(angelUser.getFileType());
+			repository.save(user);
+			return  "Update Successfull";
+		}
+		else
+			return "User Not Updated";
 	}
 	
 	

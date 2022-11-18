@@ -72,9 +72,9 @@ public class AngelController {
 	
 	//This will create another angel and will not update previous angel
 	@PutMapping("/angelUser/updateAngelUserById")
-	public ResponseEntity<AngelUser> updateAngelUserById(@RequestBody AngelUser angelUser) {
-			service.updateAngelUserById(angelUser);
-		return  new ResponseEntity<>(new AngelUser(), HttpStatus.OK);
+	public ResponseEntity<String> updateAngelUserById(@ModelAttribute AngelUser angelUser) {
+			String res = service.updateAngelUserById(angelUser);
+		return  new ResponseEntity<>(res, HttpStatus.OK);
 	}
 
 	@GetMapping("/angelUser/getAngelUserById/{ahId}")
