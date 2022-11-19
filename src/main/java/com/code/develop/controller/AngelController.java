@@ -78,8 +78,9 @@ public class AngelController {
 	}
 
 	@GetMapping("/angelUser/getAngelUserById/{ahId}")
-	public ResponseEntity<AngelTable> getAngelUserById(@PathVariable("ahId") Long ahId) {
+	public ResponseEntity<AngelTable> getAngelUserByIdAndEmail(@PathVariable("ahId") Long ahId) {
 		//AngelTable record = repo.findById(ahId).get();
+		
 		return new ResponseEntity<AngelTable>(repo.findById(ahId).get(), HttpStatus.OK); // object having the provided id
 	}
 

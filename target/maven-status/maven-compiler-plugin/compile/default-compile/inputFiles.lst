@@ -2,6 +2,7 @@ E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\model\S
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\service\AngelService.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\controller\LoginController.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\repository\AngelRepository.java
+E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\util\RandomPassword.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\data\AngelTable.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\service\signupService.java
 E:\Study Material\ESD\ESD Advance\esd-api\src\main\java\com\code\develop\repository\SignupRepository.java
