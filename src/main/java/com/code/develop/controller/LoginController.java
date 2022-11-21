@@ -53,10 +53,10 @@ public class LoginController {
 	@PutMapping("/loginhelper/changepassword")
 	public  ResponseEntity<String> changePassword( @ModelAttribute changePasswordData signIn) {
 		log.info("change password req" + signIn.toString());
-		LoginTable res = service.validatePassword(signIn);
-		//String response = (res == true) ? "Password changed": "Incorrect email or old password";
-//		return  new ResponseEntity<>(response ,HttpStatus.OK);
-		return  new ResponseEntity<>("Hello" ,HttpStatus.OK);
+		boolean res = service.validatePassword(signIn);
+		String response = (res == true) ? "Password changed": "Incorrect email or old password";
+	return  new ResponseEntity<>(response ,HttpStatus.OK);
+//		return  new ResponseEntity<>("Hello" ,HttpStatus.OK);
 	}
 	
 

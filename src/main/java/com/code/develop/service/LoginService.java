@@ -10,7 +10,7 @@ import com.code.develop.model.changePasswordData;
 import com.code.develop.repository.LoginRepository;
 
 @Service
-public class LoginService implements LoginServiceInterface {
+public class LoginService{
 
 	@Autowired
 	LoginRepository repository;
@@ -28,8 +28,8 @@ public class LoginService implements LoginServiceInterface {
 	 * 
 	 * 
 	 */
-	@Override
-	public  LoginTable validatePassword(changePasswordData signIn) {
+
+	public  boolean validatePassword(changePasswordData signIn) {
 		LoginTable obj = new LoginTable();
 		Long res =repository.findByEmailAndOldPassword(signIn.getEmail(),signIn.getOld_password());
 		if(res>0) {
@@ -37,12 +37,11 @@ public class LoginService implements LoginServiceInterface {
 			obj.setId(res);
 			obj.setEmail(signIn.getEmail());
 			obj.setPassword(signIn.getNew_password());
-			obj.toString();
 			repository.save(obj);
-			return obj;
+			return true;
 		}
 		else {
-			return obj;
+			return false;
 		}
 }
 }

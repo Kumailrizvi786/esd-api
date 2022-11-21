@@ -38,7 +38,7 @@ public class signupService {
 	LoginRepository repository;
 	
 	String hashcpy;
-public boolean saveUser(SignupData signup) {
+	public boolean saveUser(SignupData signup) {
 	
 		String hash = randomPassword.apacheCommonRandomPassword();
 		hashcpy = hash;
@@ -58,7 +58,7 @@ public boolean saveUser(SignupData signup) {
 	
 	
 	public boolean saveEmailPassword(SignupData signup) {
-		 log.info(" Generated Hash value and stored " + hashcpy.toString());
+		log.info(" Generated Hash value and stored " + hashcpy.toString());
 		LoginTable obj1 = new LoginTable();
 		obj1.setEmail(signup.getEmail());
 		obj1.setPassword(hashcpy);
