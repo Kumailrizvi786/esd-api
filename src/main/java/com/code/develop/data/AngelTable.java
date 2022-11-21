@@ -26,6 +26,7 @@ public class AngelTable {
 	private String ahAddress;
 	private String ahPincode;
 	private String ahEmail;
+	
 	private Boolean ahType; // 1 : true 0 : false
 	private String ahProfession;
 	private String ahQualification;

@@ -6,18 +6,18 @@ public class SignupData {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String password;
+	
 	private Long contact_no;
 	
 	
 	
 	
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
+//	public void setPassword(String password) {
+//		this.password = password;
+	
 	public String getFirstName() {
 		return firstName;
 	}

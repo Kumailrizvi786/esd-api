@@ -1,8 +1,11 @@
 package com.code.develop.service;
 
+import javax.mail.MessagingException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 
 import com.code.develop.data.LoginTable;
@@ -62,4 +65,6 @@ public boolean saveUser(SignupData signup) {
 		repository.save(obj1);
 		return true;
 	}
+	
+	
 }

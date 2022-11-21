@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class SignupController {
 	private signupService service;
 	
 	@PostMapping("/signup")
-	public  ResponseEntity<String> saveUserDetails(@RequestBody SignupData signUp) {
+	public  ResponseEntity<String> saveUserDetails(@ModelAttribute SignupData signUp) {
 		log.info("Sign up req" + signUp.toString());
 		boolean res1 = service.saveUser(signUp);
 		//saving email and password in login table

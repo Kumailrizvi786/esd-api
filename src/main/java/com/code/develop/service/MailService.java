@@ -54,9 +54,9 @@ public class MailService {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		
 		mail.setTo(user.getEmail());
-		mail.setSubject("Test Email on gmail account");
-		mail.setText(" Random password of user  :  "+ user.getPassword());
-        log.info(" Random password of user " +  user.getPassword());
+		mail.setSubject("Bluebook ESD Reform Portal Random Password");
+		mail.setText(" Thanks For Signing Up on Our Portal. Random password of user  :  "+ user.getPassword()+ " \n Use this password to log into your account");
+		log.info(" Random password of user " +  user.getPassword());
 		/*
 		 * This send() contains an Object of SimpleMailMessage as an Parameter
 		 */
@@ -70,7 +70,7 @@ public class MailService {
 	 * @throws MailException
 	 * @throws MessagingException
 	 */
-	public void sendEmailWithAttachment(SignupData user) throws MailException, MessagingException {
+	public void sendEmailWithAttachment(SignupTable user) throws MailException, MessagingException {
 
 		MimeMessage message = javaMailSender.createMimeMessage();
 

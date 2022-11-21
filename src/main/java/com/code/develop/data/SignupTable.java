@@ -12,26 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 public class SignupTable {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
 	private Long contact_no;
-	
-	
-	
-	
-	/*
-	 * 
-	 * Getters and Setters
-	 */
-	
-	
 	public Long getId() {
 		return id;
 	}
@@ -68,6 +58,8 @@ public class SignupTable {
 	public void setContact_no(Long contact_no) {
 		this.contact_no = contact_no;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -85,5 +77,12 @@ public class SignupTable {
 	}
 	
 	
+	
+	
+	/*
+	 * 
+	 * Getters and Setters
+	 */
 }
-
+	
+	
