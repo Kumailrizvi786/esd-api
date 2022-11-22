@@ -13,7 +13,9 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.code.develop.data.LoginTable;
 import com.code.develop.data.SignupTable;
+import com.code.develop.model.SignInData;
 import com.code.develop.model.SignupData;
 
 //import com.example.accessingdatajpa.AccessingDataJpaApplication;
@@ -62,7 +64,40 @@ public class MailService {
 		 */
 		javaMailSender.send(mail);
 	}
+	
+	
+	
+	/*
+	 * 
+	 * This is to send the mail on forget password option 
+	 * 
+	 */
 
+
+	public void sendEmailForgetPassword(LoginTable user) throws MailException {
+
+		SimpleMailMessage mail = new SimpleMailMessage();
+		
+		mail.setTo(user.getEmail());
+		mail.setSubject("Bluebook ESD Reform Portal Forget Password");
+		mail.setText(" Looks like you forgot your password \n Your password saved with us was :  "+ user.getPassword()+ " \n Use this password to log into your account");
+		log.info(" Stored password of user " +  user.getPassword());
+	
+		javaMailSender.send(mail);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * This function is used to send mail that contains a attachment.
 	 * 

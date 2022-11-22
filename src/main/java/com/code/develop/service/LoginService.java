@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service;
 import com.code.develop.data.LoginTable;
 import com.code.develop.model.SignInData;
 import com.code.develop.model.changePasswordData;
+import com.code.develop.model.forgetpasswordData;
 import com.code.develop.repository.LoginRepository;
 
 @Service
 public class LoginService{
+	
+	@Autowired
+	private MailService mailService;
 
 	@Autowired
 	LoginRepository repository;
@@ -44,4 +48,22 @@ public class LoginService{
 			return false;
 		}
 }
+	
+	/*
+	 * 
+	 * 
+	 */
+	public boolean forgetPassword(forgetpasswordData user) {
+		LoginTable obj = new LoginTable();
+		obj.setEmail(user.getEmail());
+		String result =  repository.findPasswordByEmail(obj.getEmail());
+		
+		if(obj.getEmail() != null) {
+			obj.setPassword(result);
+			mailService.sendEmailForgetPassword(obj);
+			return true;
+		}
+		else 
+			return false ;
+	}
 }

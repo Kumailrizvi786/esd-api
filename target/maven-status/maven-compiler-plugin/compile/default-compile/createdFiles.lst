@@ -7,7 +7,6 @@ com\code\develop\data\LoginTable.class
 com\code\develop\model\SignInData.class
 com\code\develop\service\LoginService.class
 com\code\develop\data\SignupTable.class
-com\code\develop\service\LoginServiceInterface.class
 com\code\develop\model\LoginUser.class
 com\code\develop\repository\LoginRepository.class
 com\code\develop\util\RandomPassword.class

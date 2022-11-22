@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,6 +18,7 @@ import com.code.develop.data.LoginTable;
 import com.code.develop.data.SignupTable;
 import com.code.develop.model.SignInData;
 import com.code.develop.model.changePasswordData;
+import com.code.develop.model.forgetpasswordData;
 import com.code.develop.service.LoginService;
 
 
@@ -59,5 +61,17 @@ public class LoginController {
 //		return  new ResponseEntity<>("Hello" ,HttpStatus.OK);
 	}
 	
-
+	@GetMapping("loginhelper/forgetpassword")
+	public ResponseEntity<String> forgetpassword (@ModelAttribute forgetpasswordData user)
+	{
+		log.info("change password req" + user.toString());
+		boolean response = service.forgetPassword(user);
+		
+		if(response == true ) {
+			return new ResponseEntity<>("Mail send ", HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>("Mail not send ", HttpStatus.OK);
+		}
+	}
 }
