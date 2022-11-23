@@ -35,10 +35,15 @@ public class LoginService{
 
 	public  boolean validatePassword(changePasswordData signIn) {
 		LoginTable obj = new LoginTable();
-		Long res =repository.findByEmailAndOldPassword(signIn.getEmail(),signIn.getOld_password());
-		if(res>0) {
-			repository.deleteById(res);
-			obj.setId(res);
+		
+		// obj =repository.findByEmailAndOldPassword(signIn.getEmail(),signIn.getOld_password());
+		
+		
+		obj = repository.findById(signIn.getId()).get();
+		
+		if(obj != null) {
+			//repository.deleteById(res);
+			//obj.setId(res);
 			obj.setEmail(signIn.getEmail());
 			obj.setPassword(signIn.getNew_password());
 			repository.save(obj);
@@ -58,7 +63,7 @@ public class LoginService{
 		obj.setEmail(user.getEmail());
 		String result =  repository.findPasswordByEmail(obj.getEmail());
 		
-		if(obj.getEmail() != null) {
+		if(obj.getEmail() != null && result != null) {
 			obj.setPassword(result);
 			mailService.sendEmailForgetPassword(obj);
 			return true;

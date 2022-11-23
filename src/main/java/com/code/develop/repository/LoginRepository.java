@@ -12,8 +12,8 @@ public interface LoginRepository extends CrudRepository<LoginTable, Long> {
 	public Long findByEmailAndPassword(String email,String password);
 
 	
-	@Query("Select id FROM LoginTable a WHERE a.email = ?1 and a.password=?2")
-	public Long findByEmailAndOldPassword(String email, String oldPassword);
+	@Query("Select * FROM LoginTable  WHERE email = ?1 and password=?2")
+	public LoginTable findByEmailAndOldPassword(String email, String oldPassword);
 	
 	
 	@Query("Select password FROM LoginTable a WHERE a.email = ?1")

@@ -45,7 +45,15 @@ public class LoginController {
 		Long result = service.validateLogin(signIn);
 		String res = (result > 0) ?  "Login SuccessFull " :  "Wrong email or password "; // 
 		log.info(res +" with id " + result);
+		Long num = (long) 0;
+		if (result > 0)
+		{
 		return  new ResponseEntity<>(result ,HttpStatus.OK);
+		}
+		else
+		{
+			return  new ResponseEntity<>(num ,HttpStatus.OK);
+		}
 	}
 	
 /**

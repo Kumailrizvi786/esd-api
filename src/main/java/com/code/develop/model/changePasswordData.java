@@ -4,12 +4,19 @@ import java.util.Objects;
 
 public class changePasswordData {
 	
+	private Long id;
 	private String email;
 	private String new_password;
 	private String old_password;
 	
 	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getEmail() {
 		return email;
 	}
