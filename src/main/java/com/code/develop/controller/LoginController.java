@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.code.develop.data.LoginTable;
@@ -39,7 +40,7 @@ public class LoginController {
 	private LoginService service;
 	
 	@PostMapping("/loginhelper/login")
-	public ResponseEntity<String> angelLogin(@ModelAttribute SignInData signIn) {
+	public ResponseEntity<String> angelLogin(@RequestBody SignInData signIn) {
 		log.info("login sign in request " + signIn.toString());
 		int result = service.validateLogin(signIn);
 		String res = (result > 0) ?  "Login SuccessFull" :  "Wrong email or password"; // 
@@ -53,7 +54,7 @@ public class LoginController {
  */
 	
 	@PutMapping("/loginhelper/changepassword")
-	public  ResponseEntity<String> changePassword( @ModelAttribute changePasswordData signIn) {
+	public  ResponseEntity<String> changePassword( @RequestBody changePasswordData signIn) {
 		log.info("change password req" + signIn.toString());
 		boolean res = service.validatePassword(signIn);
 		String response = (res == true) ? "Password changed": "Incorrect email or old password";
@@ -61,8 +62,8 @@ public class LoginController {
 //		return  new ResponseEntity<>("Hello" ,HttpStatus.OK);
 	}
 	
-	@GetMapping("loginhelper/forgetpassword")
-	public ResponseEntity<String> forgetpassword (@ModelAttribute forgetpasswordData user)
+	@PostMapping("loginhelper/forgetpassword")
+	public @ResponseBody ResponseEntity<String> forgetpassword (@RequestBody forgetpasswordData user)
 	{
 		log.info("change password req" + user.toString());
 		boolean response = service.forgetPassword(user);

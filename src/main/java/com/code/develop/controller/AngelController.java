@@ -42,7 +42,7 @@ public class AngelController {
 	
 
 	@PostMapping("/angelUser/saveAngelUser")
-	public AngelUser saveAngelUserDetail(@ModelAttribute AngelUser angelUser, 
+	public AngelUser saveAngelUserDetail(@RequestBody AngelUser angelUser, 
 			                              @RequestParam("file") MultipartFile file) throws IOException {
          
 		angelUser.setFileName(file.getName());
