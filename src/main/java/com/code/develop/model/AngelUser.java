@@ -11,7 +11,7 @@ public class AngelUser {
 
 	private Long ahId;
 	private String ahName;
-	private String ahContactNumber;
+	private Long ahContactNumber;
 	private String ahAddress;
 	private String ahPincode;
 	private String ahEmail;
@@ -65,11 +65,11 @@ public class AngelUser {
 		this.ahName = ahName;
 	}
 
-	public String getAhContactNumber() {
+	public Long getAhContactNumber() {
 		return ahContactNumber;
 	}
 
-	public void setAhContactNumber(String ahContactNumber) {
+	public void setAhContactNumber(Long ahContactNumber) {
 		this.ahContactNumber = ahContactNumber;
 	}
 

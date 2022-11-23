@@ -20,7 +20,7 @@ public class LoginService{
 	LoginRepository repository;
 	
 	
-	public int validateLogin(SignInData signIn) {
+	public Long validateLogin(SignInData signIn) {
 		
 	      return repository.findByEmailAndPassword(signIn.getEmail(), signIn.getPassword());
 	    

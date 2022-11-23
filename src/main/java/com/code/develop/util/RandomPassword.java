@@ -44,7 +44,10 @@ public class RandomPassword extends Random {
 	 * @return
 	 */
 	public String apacheCommonRandomPassword() {
-	    String generatedString = RandomStringUtils.randomAlphanumeric(10);
+		
+		String special = "@";
+		String num = "9";
+	    String generatedString = RandomStringUtils.randomAlphanumeric(10) + special + num;
 	    return generatedString;
 	}
 }

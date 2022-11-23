@@ -40,17 +40,20 @@ public class LoginController {
 	private LoginService service;
 	
 	@PostMapping("/loginhelper/login")
-	public ResponseEntity<String> angelLogin(@RequestBody SignInData signIn) {
+	public ResponseEntity<Long> angelLogin(@RequestBody SignInData signIn) {
 		log.info("login sign in request " + signIn.toString());
-		int result = service.validateLogin(signIn);
-		String res = (result > 0) ?  "Login SuccessFull" :  "Wrong email or password"; // 
-		return  new ResponseEntity<>(res ,HttpStatus.OK);
+		Long result = service.validateLogin(signIn);
+		String res = (result > 0) ?  "Login SuccessFull " :  "Wrong email or password "; // 
+		log.info(res +" with id " + result);
+		return  new ResponseEntity<>(result ,HttpStatus.OK);
 	}
 	
 /**
  * 
  * @param signIn
+ * 
  * @return ResponseEntity<String>
+ 
  */
 	
 	@PutMapping("/loginhelper/changepassword")

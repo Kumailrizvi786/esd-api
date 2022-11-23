@@ -32,11 +32,13 @@ public class SignupController {
 	private signupService service;
 	
 	@PostMapping("/signup")
-	public  ResponseEntity<String> saveUserDetails(@ModelAttribute SignupData signUp) {
+	public  ResponseEntity<String> saveUserDetails(@RequestBody SignupData signUp) {
 		log.info("Sign up req" + signUp.toString());
 		boolean res1 = service.saveUser(signUp);
 		//saving email and password in login table
 		boolean res = service.saveEmailPassword(signUp);
+		//Long id =(long) 10;
+		boolean res2 = service.saveAngelUserinTable(signUp);
 		if (res == true && res1 == true)
 			return  new ResponseEntity<>("Signup Successfull" ,HttpStatus.OK);
 		else

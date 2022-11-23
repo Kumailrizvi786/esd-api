@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
 
+import com.code.develop.data.AngelTable;
 import com.code.develop.data.LoginTable;
 import com.code.develop.data.SignupTable;
 import com.code.develop.model.SignupData;
+import com.code.develop.repository.AngelRepository;
 import com.code.develop.repository.LoginRepository;
 import com.code.develop.repository.SignupRepository;
 import com.code.develop.service.MailService;
@@ -37,6 +39,10 @@ public class signupService {
 	@Autowired
 	LoginRepository repository;
 	
+	
+	@Autowired
+	AngelRepository re;
+	
 	String hashcpy;
 	public boolean saveUser(SignupData signup) {
 	
@@ -48,11 +54,16 @@ public class signupService {
 		obj.setFirstName(signup.getFirstName());
 		obj.setLastName(signup.getLastName());
 		obj.setPassword(hash);
+		boolean res;
 		if (repo.save(obj) != null )
 		{
-			mailService.sendEmail(obj);
+			Long id = obj.getId();
+			res = saveAngelUserinTable(signup);
+			if (res == true)
+				mailService.sendEmail(obj);
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	
@@ -64,6 +75,26 @@ public class signupService {
 		obj1.setPassword(hashcpy);
 		repository.save(obj1);
 		return true;
+	}
+
+
+
+
+
+	public boolean saveAngelUserinTable(SignupData signUp) {
+		// TODO Auto-generated method stub
+		AngelTable obj = new AngelTable();
+		
+		String con =  signUp.getFirstName() + signUp.getLastName();
+		obj.setAhName(con);
+		obj.setAhContactNumber(signUp.getContact_no());
+		obj.setAhEmail(signUp.getEmail());
+		//obj.setAhId(id);
+		 if ( re.save(obj) != null ) {
+			return true; 
+		 }
+		 	return false;
+		 
 	}
 	
 	

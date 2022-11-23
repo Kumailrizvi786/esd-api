@@ -78,7 +78,7 @@ public class AngelService {
 		angelTable.setAhType(angelUser.getAhType());
 		angelTable.setAhProfession(angelUser.getAhProfession());
 		angelTable.setAhQualification(angelUser.getAhQualification());
-		angelTable.setAhContactPersonName(angelUser.getAhContactNumber());
+		angelTable.setAhContactPersonName(angelUser.getAhContactPersonName());
 		angelTable.setAhStatus(angelUser.getAhStatus());
 		angelTable.setAhInterestId(angelUser.getAhInterestId());
 		angelTable.setAhCreated_on(angelUser.getAhCreated_on());
